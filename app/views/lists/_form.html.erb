@@ -21,7 +21,7 @@
   </div>
 
   <div class="row">
-    <%= fields_for(@item) do |i| %>
+    <%= f.fields_for :items do |i| %>
       <div class="small-2 large-4 columns">
         <%= i.label :name %>
         <%= i.text_area :name %>

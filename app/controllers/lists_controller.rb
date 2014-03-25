@@ -23,7 +23,7 @@ class ListsController < ApplicationController
   # GET /lists/1/edit
   def edit
     @list = List.find(params[:id])
-    @item = @list.items.update_attributes
+    @item = @list.items.build
   end
 
   # POST /lists
@@ -31,7 +31,7 @@ class ListsController < ApplicationController
   def create
     params.permit!
     @list = List.new(params[:list])
-    @item = @list.items.new(params[:item])
+    @list.items.build
 
     respond_to do |format|
       if @list.save
