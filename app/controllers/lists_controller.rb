@@ -10,21 +10,28 @@ class ListsController < ApplicationController
   # GET /lists/1
   # GET /lists/1.json
   def show
+    @list = List.find(params[:id])
   end
 
   # GET /lists/new
   def new
+    params.permit!
     @list = List.new
+    @item = @list.items.new(params[:item])
   end
 
   # GET /lists/1/edit
   def edit
+    @list = List.find(params[:id])
+    @item = @list.items.update
   end
 
   # POST /lists
   # POST /lists.json
   def create
-    @list = List.new(list_params)
+    params.permit!
+    @list = List.new(params[:list])
+    @item = @list.items.new(params[:item])
 
     respond_to do |format|
       if @list.save
