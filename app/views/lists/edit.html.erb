@@ -1,5 +1,5 @@
 <div class="row">
-<h1>Editing list</h1>
+<h1><%= @list.name %></h1>
 
 <%= form_for(@list) do |f| %>
   <% if @list.errors.any? %>
@@ -23,6 +23,7 @@
     <%= f.text_area :description %>
   </div>
 
+  <h2>Edit List Items</h2>
   <div class="row">
     <%= f.nested_fields_for :items do |i| %>
     	
