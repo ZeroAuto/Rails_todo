@@ -23,7 +23,7 @@ class ListsController < ApplicationController
   # GET /lists/1/edit
   def edit
     @list = List.find(params[:id])
-    @item = @list.items.build
+    @list.items.build
   end
 
   # POST /lists

@@ -15,5 +15,7 @@
 //= require foundation
 //= require turbolinks
 //= require_tree .
+//= require nested_form_fields
 
 $(function(){ $(document).foundation(); });
+

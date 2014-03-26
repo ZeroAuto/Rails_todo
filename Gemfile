@@ -41,6 +41,8 @@ end
 gem 'foundation-rails'
 gem 'devise'
 gem 'hirb'
+gem 'nested_form_fields'
+gem 'haml'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
