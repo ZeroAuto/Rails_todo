@@ -22,19 +22,19 @@
 
   <div class="row">
     <%= f.nested_fields_for :items do |i| %>
-      <div class="large-4 columns">
+      <div class="large-2 columns">
         <%= i.label :name %>
         <%= i.text_area :name %>
       </div>
-      <div class="large-4 columns">
+      <div class="large-8 columns">
         <%= i.label :description %>
         <%= i.text_area :description %>
       </div>
-      <div class="large-2 columns">
+      <div class="large-1 columns">
         <%= i.label :done %>
         <%= i.check_box :done %>
       </div>
-      <div class="large-2 columns">
+      <div class="large-1 columns">
         <%= i.remove_nested_fields_link "Remove" %>
       </div>
 

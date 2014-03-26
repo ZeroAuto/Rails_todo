@@ -1,8 +1,57 @@
 <div class="row">
 <h1>Editing list</h1>
 
-<%= render 'form' %>
+<%= form_for(@list) do |f| %>
+  <% if @list.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@list.errors.count, "error") %> prohibited this list from being saved:</h2>
 
+      <ul>
+      <% @list.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="row">
+    <%= f.nested_fields_for :items do |i| %>
+    	
+	      <div class="large-2 columns">
+	        <%= i.label :name %>
+	        <%= i.text_area :name %>
+	      </div>
+	      <div class="large-7 columns">
+	        <%= i.label :description %>
+	        <%= i.text_area :description %>
+	      </div>
+	      <div class="large-1 columns">
+	        <%= i.label :done %>
+	        <%= i.check_box :done %>
+	      </div>
+	      <div class="large-2 columns">
+	      	<p class="show_remove_button">Delete this item? <%= i.remove_nested_fields_link "Yes" %></p>
+	    	</div>
+	      
+	    
+
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= f.add_nested_fields_link :items %>
+    <%= f.submit %>
+  </div>
+<% end %>
 <%= link_to 'Show', @list %> |
 <%= link_to 'Back', lists_path %>
 </div>
