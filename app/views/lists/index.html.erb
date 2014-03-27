@@ -1,15 +1,15 @@
 <div class="row">
   <h1>Mike's App for Creating Todo lists</h1>
-  <button id="new_list_button"><%= link_to 'Create New List', new_list_path %></button>
+  <button id="large_button"><%= link_to 'Create New List', new_list_path %></button>
   <div class="row">
-    <table>
+    
       <% @lists.each do |list| %>
-        <tr>
-          <td><h4><%= link_to list.name, edit_list_path(list) %></h4></td>
-          <td><button class="delete_button">X</button></td>
-        </tr>
+        
+          <div class="large-8 columns list_item"><h4><%= link_to list.name, edit_list_path(list) %></h4></div>
+          <div class"large-4 columns list_item"><button class="small_button shown_button">X</button><%= link_to "Are you sure?", list, method: :delete, :class => "small_button hidden_button" %></div>
+        
       <% end %>
-    </table>
+    
   </div>
   
 </div>
