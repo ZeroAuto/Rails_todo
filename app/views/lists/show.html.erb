@@ -58,7 +58,11 @@
 						<p><%= item.description %></p>
 					</td>
 					<td>
-						<p><%= item.done %></p>
+						<% if item.done? %>
+							<p>Finished</p>
+						<% else %>
+							<p>In progress</p>
+						<% end %>
 					</td>
 				</tr>
 			<% end %>
