@@ -24,6 +24,7 @@ class ListsController < ApplicationController
   def edit
     @list = List.find(params[:id])
     @list.items.build
+    @items = @list.items.all
   end
 
   # POST /lists
