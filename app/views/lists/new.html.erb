@@ -14,32 +14,12 @@
   <% end %>
 
   <div class="field">
-    <div id="create_list"><%= f.label :name, "Create a new list" %></div><br>
-    <%= f.text_field :name %>
+    <% if false %><div id="create_list"><%= f.label :name %></div><br><% end %>
+    <div style="margin-top:20px;"><%= f.text_field :name, :value => "What would you like name your new list?" %></div>
   </div>
 
-  <% if false %><h2>Add Items to the List</h2>
-  <%= f.add_nested_fields_link :items %>
-  <div class="row">
-    <%= f.nested_fields_for :items do |i| %>
-      <div class="large-2 columns">
-        <%= i.label :name %>
-        <%= i.text_area :name %>
-      </div>
-      <div class="large-9 columns">
-        <%= i.label :description %>
-        <%= i.text_area :description %>
-      </div>
-      
-      <div class="large-1 columns">
-        <%= i.remove_nested_fields_link "Remove" %>
-      </div>
-
-    <% end %>
-  </div><% end %>
-
   <div class="actions">
-    <%= f.submit :id => 'small_button' %><%= link_to 'Cancel', lists_path, :class => 'small_button' %>
+    <%= link_to 'No thanks, Cancel', lists_path, :class => "cancel_link" %><%= f.submit %>
   </div>
 <% end %>
 

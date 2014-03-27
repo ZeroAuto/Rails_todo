@@ -82,3 +82,7 @@
 	border-bottom:2px;
 	border-color:black;
 }
+
+.cancel_link {
+	margin-right: 10px;
+}
