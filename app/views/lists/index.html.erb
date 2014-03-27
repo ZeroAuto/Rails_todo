@@ -1,29 +1,15 @@
 <div class="row">
   <h1>Mike's App for Creating Todo lists</h1>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-
-    <tbody>
+  <button id="new_list_button"><%= link_to 'Create New List', new_list_path %></button>
+  <div class="row">
+    <table>
       <% @lists.each do |list| %>
         <tr>
-          <td><%= list.name %></td>
-          <td><%= list.description %></td>
-          <td><%= link_to 'View/Edit List', edit_list_path(list) %></td>
-          <td><%= link_to 'Delete List', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><h4><%= link_to list.name, edit_list_path(list) %></h4></td>
+          <td><button class="delete_button">X</button></td>
         </tr>
       <% end %>
-    </tbody>
-  </table>
-
-  <br>
-
-  <%= link_to 'New Todo List', new_list_path %>
+    </table>
+  </div>
+  
 </div>

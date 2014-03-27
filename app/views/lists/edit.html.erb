@@ -14,18 +14,11 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-
-  <h2>Edit List Items</h2>
+  <h4>Edit List Items</h4>
+  <%= f.add_nested_fields_link :items %>
   <div class="row">
     <%= f.nested_fields_for :items do |i| %>
+
     	
 	      <div class="large-2 columns">
 	        <%= i.label :name %>
@@ -43,16 +36,11 @@
 	      	<p class="show_remove_button">Delete this item? <%= i.remove_nested_fields_link "Yes" %></p>
 	    	</div>
 	      
-	    
-
     <% end %>
   </div>
 
   <div class="actions">
-    <%= f.add_nested_fields_link :items %>
-    <%= f.submit %>
+    <%= f.submit :id => 'submit_button' %><%= link_to 'Cancel', lists_path, :id => 'cancel' %>
   </div>
 <% end %>
-<%= link_to 'Show', @list %> |
-<%= link_to 'Back', lists_path %>
 </div>

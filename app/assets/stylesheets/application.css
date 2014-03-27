@@ -1,0 +1,45 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require foundation_and_overrides
+ *= require lists
+
+ *= require_tree .
+ */
+
+/*= require foundation */
+
+#new_list_button {
+	color:#FFFFFF;
+	background-color:black;
+	border-radius:5px;
+}
+
+.delete_button {
+	border-radius:5px;
+	background-color:red;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:20px;
+	padding-right:20px;
+}
+
+#create_list {
+	margin-top:10px;
+}
+
+#create_list label {
+	font-size:1.875rem!important;
+}
+
+#cancel {
+	margin-left:10px;
+}

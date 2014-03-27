@@ -15,11 +15,9 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
+
   <h2>Add Items to the List</h2>
+  <%= f.add_nested_fields_link :items %>
   <div class="row">
     <%= f.nested_fields_for :items do |i| %>
       <div class="large-2 columns">
@@ -42,7 +40,6 @@
   </div>
 
   <div class="actions">
-    <%= f.add_nested_fields_link :items %>
     <%= f.submit %>
   </div>
 <% end %>
