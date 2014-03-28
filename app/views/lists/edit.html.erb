@@ -15,25 +15,7 @@
     </div>
   <% end %>
   
-  <div class="row append"></div>
-
-  <button class="small_button">Add New Item</button>
-
-  <% if false %><%= form_for(@list) do |f| %>
-    <div class="row">
-      <%= f.fields_for :item do |i| %>
-        <div class="large-2 columns add_item">Add New Item:</div>
-        <div class="large-2 columns">
-          <%= i.label :name %>
-          <%= i.text_field :name %>
-        </div>
-        <div class="large-8 columns">
-          <%= i.label :description %>
-          <%= i.text_field :description %>
-        </div>
-      <% end %>
-    </div>
-  <% end %><% end %>
+  <div class="row append"><button class="small_button" id="add_new_item_botton">Add New Item</button></div>
 
   <h4>Edit List Items</h4>
 
@@ -41,13 +23,13 @@
     <%= f.nested_fields_for :items do |i| %>
 
 	   <div class="row item_field">
-        <div class="large-2 columns check_box">
+        <div class="large-1 columns check_box">
 	        <%= i.check_box :done %>
 	      </div>
-        <div class="large-8 columns">
+        <div class="large-9 columns name_field">
           <%= i.text_field :name %>
         </div>
-        <div class="large-2 columns">
+        <div class="large-2 columns button_remove">
           <button class="small_button shown_button">X</button><div class="small_button hidden_button"><%= i.remove_nested_fields_link 'Are you sure?' %></div>
         </div>
       </div>

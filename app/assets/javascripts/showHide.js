@@ -10,5 +10,9 @@ $(document).ready(function() {
 	});
 	$itemField = $(".item_field").last().detach();
 	$(".append").append($itemField);
+	$($itemField).children().last().remove();
+	$($itemField).children().first().remove();
+	$($itemField).attr('id', 'add_new_item_field');
+
 	// console.log($(".item_form_list").children().last())
 });
