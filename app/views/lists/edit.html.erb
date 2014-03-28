@@ -38,12 +38,19 @@
   <h4>Edit List Items</h4>
 
   <div class="item_form_list">
-    <%= f.fields_for :items do |i| %>
+    <%= f.nested_fields_for :items do |i| %>
 
-	      <div class="row"><div class="large-2 columns check_box">
+	     <div class="row">
+        <div class="large-2 columns check_box">
 	        <%= i.check_box :done %>
 	      </div>
-        <div class="large-10 columns"><%= i.text_field :name %></div></div>
+        <div class="large-8 columns">
+          <%= i.text_field :name %>
+        </div>
+        <div class="large-2 columns">
+          <button class="small_button shown_button">X</button><div class="small_button hidden_button"><%= i.remove_nested_fields_link 'Are you sure?' %></div>
+        </div>
+      </div>
 	      
     <% end %>
   </div>

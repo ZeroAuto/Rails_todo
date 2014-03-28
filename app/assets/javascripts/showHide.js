@@ -4,9 +4,6 @@ $(document).ready(function() {
 	  $(this).next().show();
 	  $(this).remove();
 	});
-	$(".check_box").click(function(){
-		console.log(this);
-	})
 	$("#submit_button").hide();
 	$(".item_form_list").children().last().detach();
 	$(".check_box").click(function(){

@@ -86,3 +86,7 @@
 .cancel_link {
 	margin-right: 10px;
 }
+
+.nested_fields {
+	border:none!important;
+}
