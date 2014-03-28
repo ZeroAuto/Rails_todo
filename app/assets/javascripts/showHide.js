@@ -1,5 +1,4 @@
 $(document).ready(function() {
-	$(".item_form_list:last-child").detach();
 	$(".hidden_button").hide();
 	$(".shown_button").click(function(){
 	  $(this).next().show();
@@ -8,5 +7,8 @@ $(document).ready(function() {
 	$("#submit_button").hide();
 	$(".check_box").click(function(){
 		$("#submit_button").click();
-	})
+	});
+	$itemField = $(".item_field").last().detach();
+	$(".append").append($itemField);
+	// console.log($(".item_form_list").children().last())
 });

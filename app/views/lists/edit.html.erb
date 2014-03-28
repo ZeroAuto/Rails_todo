@@ -14,10 +14,10 @@
       </ul>
     </div>
   <% end %>
+  
+  <div class="row append"></div>
 
   <button class="small_button">Add New Item</button>
-
-  <div class="row" id="add_item append"></div>
 
   <% if false %><%= form_for(@list) do |f| %>
     <div class="row">
@@ -40,7 +40,7 @@
   <div class="item_form_list">
     <%= f.nested_fields_for :items do |i| %>
 
-	   <div class="row">
+	   <div class="row item_field">
         <div class="large-2 columns check_box">
 	        <%= i.check_box :done %>
 	      </div>
