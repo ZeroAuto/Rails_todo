@@ -90,3 +90,11 @@
 .nested_fields {
 	border:none!important;
 }
+.remove_nested_fields_link {
+	color:white;
+}
+.remove_nested_fields_link:hover {
+	color:white;
+}
+
+<%= link_to "Are you sure?", list_item_path(list, path), :method => :delete %>
