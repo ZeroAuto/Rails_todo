@@ -1,7 +1,8 @@
 <div class="row">
+  <%= link_to 'Back to Lists', lists_path %>
 <h1><%= @list.name %></h1>
 
-<%= form_for(@list) do |f| %>
+<%= form_for(@list, :url => {:action => 'update', :id => @list.id}) do |f| %>
   <% if @list.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@list.errors.count, "error") %> prohibited this list from being saved:</h2>
@@ -14,27 +15,40 @@
     </div>
   <% end %>
 
-  <h4>Edit List Items</h4>
-  <%= f.add_nested_fields_link :items %>
-  <div class="row">
-    <%= f.nested_fields_for :items do |i| %>
+  
+  <% if false %><div class="row">
+    <%= f.fields_for :item do |i| %>
+      <div class="large-2 columns add_item">Add New Item:</div>
+      <div class="large-2 columns">
+        <%= i.label :name %>
+        <%= i.text_field :name %>
+      </div>
+      <div class="large-8 columns">
+        <%= i.label :description %>
+        <%= i.text_field :description %>
+      </div>
+    <% end %>
+  </div><% end %>
 
-    	
-	      <div class="large-2 columns">
-	        <%= i.label :name %>
-	        <%= i.text_area :name %>
-	      </div>
-	      <div class="large-7 columns">
-	        <%= i.label :description %>
-	        <%= i.text_area :description %>
-	      </div>
+  <h4>Edit List Items</h4>
+
+  <% if false %><div class="row">
+    <% @list.items.map do |i| %>
+
+      <div class="class"><%= i.name %> <%= i.id %></div>
+      <% @num += 1 %>
+
+    <% end %>
+  </div><% end %>
+
+  <div class="row">
+    <%= f.fields_for :items do |i| %>
+
 	      <div class="large-1 columns">
-	        <%= i.label :done %>
 	        <%= i.check_box :done %>
 	      </div>
-	      <div class="large-2 columns">
-	      	<p class="show_remove_button">Delete this item? <%= i.remove_nested_fields_link "Yes" %></p>
-	    	</div>
+        <div class="large-3 columns"><%= i.object.name %></div>
+        <div class="large-8 columns"><%= i.text_field :description, readonly: !:description.blank? %></div>
 	      
     <% end %>
   </div>

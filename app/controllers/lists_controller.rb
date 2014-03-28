@@ -23,8 +23,9 @@ class ListsController < ApplicationController
   # GET /lists/1/edit
   def edit
     @list = List.find(params[:id])
-    @list.items.build
     @items = @list.items.all
+    @num = 0
+    # @new_item = @list.items.new(params[:item])
   end
 
   # POST /lists
@@ -32,11 +33,11 @@ class ListsController < ApplicationController
   def create
     params.permit!
     @list = List.new(params[:list])
-    @list.items.build
-
+    # @list.items.build
+    @item = @list.items.new(params[:item])
     respond_to do |format|
       if @list.save
-        format.html { redirect_to @list, notice: 'List was successfully created.' }
+        format.html { redirect_to lists_url, notice: 'List was successfully created.' }
         format.json { render action: 'show', status: :created, location: @list }
       else
         format.html { render action: 'new' }
@@ -50,10 +51,11 @@ class ListsController < ApplicationController
   def update
     params.permit!
     @list = List.find(params[:id])
-    @list.update_attributes params[:list]
+    @list.update_attributes! params[:list]
     respond_to do |format|
       if @list.update(list_params)
-        format.html { redirect_to @list, notice: 'List was successfully updated.' }
+
+        format.html { redirect_to edit_list_path, notice: 'List was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

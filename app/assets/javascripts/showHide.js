@@ -4,4 +4,5 @@ $(document).ready(function() {
 	  $(this).next().show();
 	  $(this).remove();
 	});
+	
 })
