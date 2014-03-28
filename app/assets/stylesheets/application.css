@@ -109,3 +109,28 @@
 #add_new_item_field {
 	margin-left:10px;
 }
+
+.check_box {
+	margin-top:8px;
+}
+
+.button_remove {
+	margin-top:5px;
+}
+.nested_fields {
+	padding-top:0;
+	padding-bottom:0;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.check_input {
+	margin-left:40px!important;
+}
+input {
+	box-shadow:none;
+	-webkit-box-shadow:none!important;
+	border-radius:5px;
+	transition:none!important;
+	-webkit-transition:none!important;
+	-moz-transition:none!important;
+}

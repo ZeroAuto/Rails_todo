@@ -1,6 +1,10 @@
 class ListsController < ApplicationController
   before_action :set_list, only: [:show, :edit, :update, :destroy]
 
+
+  def list_params
+    params.require(:list).permit(:name, item_attributes: [:id, :name, :done, :_destroy])
+  end
   # GET /lists
   # GET /lists.json
   def index
