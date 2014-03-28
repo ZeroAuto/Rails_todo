@@ -15,46 +15,41 @@
     </div>
   <% end %>
 
-  
-  <% if false %><div class="row">
-    <%= f.fields_for :item do |i| %>
-      <div class="large-2 columns add_item">Add New Item:</div>
-      <div class="large-2 columns">
-        <%= i.label :name %>
-        <%= i.text_field :name %>
-      </div>
-      <div class="large-8 columns">
-        <%= i.label :description %>
-        <%= i.text_field :description %>
-      </div>
-    <% end %>
-  </div><% end %>
+  <button class="small_button">Add New Item</button>
+
+  <div class="row" id="add_item append"></div>
+
+  <% if false %><%= form_for(@list) do |f| %>
+    <div class="row">
+      <%= f.fields_for :item do |i| %>
+        <div class="large-2 columns add_item">Add New Item:</div>
+        <div class="large-2 columns">
+          <%= i.label :name %>
+          <%= i.text_field :name %>
+        </div>
+        <div class="large-8 columns">
+          <%= i.label :description %>
+          <%= i.text_field :description %>
+        </div>
+      <% end %>
+    </div>
+  <% end %><% end %>
 
   <h4>Edit List Items</h4>
 
-  <% if false %><div class="row">
-    <% @list.items.map do |i| %>
-
-      <div class="class"><%= i.name %> <%= i.id %></div>
-      <% @num += 1 %>
-
-    <% end %>
-  </div><% end %>
-
-  <div class="row">
+  <div class="item_form_list">
     <%= f.fields_for :items do |i| %>
 
-	      <div class="large-1 columns">
+	      <div class="row"><div class="large-2 columns check_box">
 	        <%= i.check_box :done %>
 	      </div>
-        <div class="large-3 columns"><%= i.object.name %></div>
-        <div class="large-8 columns"><%= i.text_field :description, readonly: !:description.blank? %></div>
+        <div class="large-10 columns"><%= i.text_field :name %></div></div>
 	      
     <% end %>
   </div>
 
   <div class="actions">
-    <%= f.submit :id => 'submit_button' %><%= link_to 'Cancel', lists_path, :id => 'cancel' %>
+    <%= f.submit :id => 'submit_button' %>
   </div>
 <% end %>
 </div>

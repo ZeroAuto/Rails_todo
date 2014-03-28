@@ -24,8 +24,7 @@ class ListsController < ApplicationController
   def edit
     @list = List.find(params[:id])
     @items = @list.items.all
-    @num = 0
-    # @new_item = @list.items.new(params[:item])
+    @list.items.build
   end
 
   # POST /lists
@@ -33,7 +32,6 @@ class ListsController < ApplicationController
   def create
     params.permit!
     @list = List.new(params[:list])
-    # @list.items.build
     @item = @list.items.new(params[:item])
     respond_to do |format|
       if @list.save
